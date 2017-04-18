@@ -47,6 +47,10 @@ public class ClassType {
         return fieldTypes.keySet();
     }
 
+    String getFieldType(String fieldName) {
+        return fieldTypes.get(fieldName);
+    }
+
     boolean hasField(String fieldName) {
         return fieldTypes.containsKey(fieldName);
     }

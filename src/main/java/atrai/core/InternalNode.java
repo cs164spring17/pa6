@@ -88,20 +88,24 @@ public class InternalNode extends TreeNode {
             return false;
         }
 
+        int j = 0;
         for (int i = 0; i < this.children.length; i++) {
             if (children[i] instanceof WildcardStarCaptureToken) {
                 int len = otherTmp.children.length - this.children.length + 1;
                 ((WildcardStarCaptureToken) children[i]).match(otherTmp.children, i, len, captures);
-                i = i + len;
+                j = j + len;
             } else if (children[i] instanceof WildcardStarToken) {
                 int len = otherTmp.children.length - this.children.length + 1;
-                i = i + len;
+                j = j + len;
             } else if (children[i] instanceof TreeNode) {
-                if (!((TreeNode) children[i]).matches(otherTmp.children[i], captures)) {
+                if (!((TreeNode) children[i]).matches(otherTmp.children[j], captures)) {
                     return false;
                 }
-            } else if (!children[i].equals(otherTmp.children[i])) {
+                j++;
+            } else if (!children[i].equals(otherTmp.children[j])) {
                 return false;
+            } else {
+                j++;
             }
         }
 
