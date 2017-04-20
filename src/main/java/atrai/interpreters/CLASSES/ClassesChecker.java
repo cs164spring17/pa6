@@ -15,9 +15,9 @@ import java.util.Iterator;
 import static atrai.interpreters.common.DynamicTypeChecker.*;
 
 public class ClassesChecker extends Interpreter {
-    private final String grammarName = "atrai.antlr.CLASSES";
-    private final ANTLRTokenizer tokenizer = new ANTLRTokenizer(grammarName);
-    private final Pattern typeExtractor = Pattern.parse("(%CLS @ typed @ @_%)", tokenizer);
+    private static final String grammarName = "atrai.antlr.CLASSES";
+    private static final ANTLRTokenizer tokenizer = new ANTLRTokenizer(grammarName);
+    private static final Pattern typeExtractor = Pattern.parse("(%CLS @ typed @ @_%)", tokenizer);
     private String currentClassName = null;
     private String currentMethodName = null;
     private Environment currentEnv = null;

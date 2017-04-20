@@ -2,8 +2,7 @@ package atrai.core;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 
 /**
  * Tests for the {@link Pattern} class.
@@ -148,7 +147,7 @@ public class PatternTest {
         String pattern = "(% @_ worlds %)";
         String source = "(%hello world%)";
         Object[] captures = match(pattern, source);
-        assertEquals(null, captures);
+        assertNull(captures);
     }
 
     @Test
@@ -164,7 +163,7 @@ public class PatternTest {
         String pattern = "hello";
         String source = "hell";
         Object[] captures = match(pattern, source);
-        assertEquals(null, captures);
+        assertNull(captures);
     }
 
     @Test

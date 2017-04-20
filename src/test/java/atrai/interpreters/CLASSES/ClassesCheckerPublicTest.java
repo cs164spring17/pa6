@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class ClassesCheckerPublicTest {
     private static ClassesChecker inp = new ClassesChecker();
-    private static InterpreterTestHelper t = new InterpreterTestHelper(inp);
+    private static InterpreterTestHelper t = new InterpreterTestHelper(ClassesChecker::new);
 
     @Test(expected = SemanticException.class)
     public void testExtraArgumentSelfCast() throws Exception {
