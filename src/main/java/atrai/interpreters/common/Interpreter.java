@@ -39,6 +39,7 @@ public abstract class Interpreter {
             }
             Object result = interpreter.interpret(tree);
             if (result instanceof Tree) {
+                System.out.printf("%n--------------%n%s%n--------------%n%n", result);
                 result = ((Tree) result).toIndentedString();
             } else if (result instanceof CodeTemplate) {
                 result = ((CodeTemplate) result).generateCode();
